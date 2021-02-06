@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h1 class="navbar-brand">Fake Itunes</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container inner-padded">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-title">Artists</h5>
+                    <div th:each="artist:${artists}">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:text="${artist}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-title">Songs</h5>
+                    <div th:each="song:${songs}">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:text="${song}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-title">Genres</h5>
+                    <div th:each="genre:${genres}">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:text="${genre}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
