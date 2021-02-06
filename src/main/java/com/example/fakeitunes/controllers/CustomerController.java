@@ -2,6 +2,8 @@ package com.example.fakeitunes.controllers;
 
 import com.example.fakeitunes.data_access.CustomerRepository;
 import com.example.fakeitunes.models.Customer;
+import com.example.fakeitunes.models.CustomerSpending;
+import com.example.fakeitunes.models.CustomerAndGenre;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -31,5 +33,16 @@ public class CustomerController {
     public Stream<Map.Entry<String, Integer>> getCustomersPerCountry() {
         return customerRepository.countCustomersPerCountry();
     }
+
+    @RequestMapping(value = "api/customers/spenders", method = RequestMethod.GET)
+    public ArrayList<CustomerSpending> getCustomersByHighestSpender(){
+        return customerRepository.getCustomersByHighestSpender();
+    }
+
+    @RequestMapping(value = "api/customers/{id}", method = RequestMethod.GET)
+    public CustomerAndGenre getCustomerByPathId(@PathVariable String id){
+        return customerRepository.getMostPopularGenreForCustomer(id);
+    }
+
 
 }
