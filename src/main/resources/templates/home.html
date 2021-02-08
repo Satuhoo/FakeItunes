@@ -17,8 +17,9 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" th:action="@{/search}">
+                Filter: <input class="form-control me-2" type="search" placeholder="Search"
+                               name="term" id="term" size="30" th:value="${term}" required />
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

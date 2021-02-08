@@ -39,8 +39,8 @@ public class CustomerController {
         return customerRepository.getCustomersByHighestSpender();
     }
 
-    @RequestMapping(value = "api/customers/{id}", method = RequestMethod.GET)
-    public CustomerAndGenre getCustomerByPathId(@PathVariable String id){
+    @RequestMapping(value = "api/customers/{id}/genre", method = RequestMethod.GET)
+    public CustomerAndGenre getMostPopularGenreByCustomerId(@PathVariable String id){
         return customerRepository.getMostPopularGenreForCustomer(id);
     }
 

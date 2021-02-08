@@ -1,5 +1,6 @@
 package com.example.fakeitunes.data_access;
 
+import com.example.fakeitunes.models.SearchResult;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -98,5 +99,50 @@ public class MusicRepository {
             }
         }
         return randomGenres;
+    }
+
+    public ArrayList<SearchResult> search(String term) {
+        System.out.println(term);
+        ArrayList<SearchResult> results = new ArrayList<>();
+        System.out.println(term);
+        try {
+            //Connect to database
+            conn = DriverManager.getConnection(URL);
+            System.out.println("Connection to SQLite has been established.");
+
+            // Make SQL query which search track names to contains search term
+            PreparedStatement preparedStatement =
+                    conn.prepareStatement("SELECT Track.Name AS track, Album.Title AS album, " +
+                            "Artist.Name AS artist, Genre.Name AS genre FROM Track\n" +
+                            "INNER JOIN Album, Artist, Genre\n" +
+                            "WHERE Track.AlbumId == Album.AlbumId\n" +
+                            "AND Album.ArtistId == Artist.ArtistId\n" +
+                            "AND Track.GenreId == Genre.GenreId\n" +
+                            "AND Track.Name LIKE ?");
+            preparedStatement.setString(1, "%" + term + "%");
+            // Execute Query
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                results.add(
+                        new SearchResult(
+                                resultSet.getString("track"),
+                                resultSet.getString("artist"),
+                                resultSet.getString("album"),
+                                resultSet.getString("genre")
+                        ));
+            }
+            System.out.println("Search successful");
+        } catch (Exception exception) {
+            System.out.println(exception.toString());
+        } finally {
+            try {
+                conn.close();
+            } catch (Exception exception) {
+                System.out.println(exception.toString());
+            }
+        }
+        System.out.println(results);
+        return results;
     }
 }
