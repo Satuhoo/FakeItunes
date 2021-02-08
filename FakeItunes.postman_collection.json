@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "f84d9e70-de98-4723-a085-a103ea3fce0c",
+		"name": "FakeItunes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_all_customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"customerId\": \"62\",\r\n        \"firstName\": null,\r\n        \"lastName\": null,\r\n        \"country\": null,\r\n        \"postalCode\": null,\r\n        \"phone\": null,\r\n        \"email\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"customerId\": \"61\",\r\n        \"firstName\": \"Leia\",\r\n        \"lastName\": \"Organa\",\r\n        \"country\": \"Alderaan\",\r\n        \"postalCode\": null,\r\n        \"phone\": null,\r\n        \"email\": \"leia@organa.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers/update/61",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"update",
+						"61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers_per_country",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/countries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers_spending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/spending",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"spending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer's_most_popular_genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/12/popular/genre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"12",
+						"popular",
+						"genre"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
