@@ -5,3 +5,8 @@
 .navbar-brand {
     font-size: 30px;
 }
+
+.no-results {
+    margin: 50px;
+    font-size: large;
+}
