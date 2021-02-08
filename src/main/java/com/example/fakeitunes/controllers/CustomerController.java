@@ -24,8 +24,8 @@ public class CustomerController {
         return customerRepository.addCustomer(customer);
     }
 
-    @RequestMapping(value = "api/customers/{CustomerId}", method = RequestMethod.PUT)
-    public Boolean updateExistingCustomer(@PathVariable String CustomerId, @RequestBody Customer customer){
+    @RequestMapping(value = "api/customers/update/{CustomerId}", method = RequestMethod.PUT)
+    public Boolean updateExistingCustomer(@RequestBody Customer customer){
         return customerRepository.updateCustomer(customer);
     }
 
@@ -34,15 +34,13 @@ public class CustomerController {
         return customerRepository.countCustomersPerCountry();
     }
 
-    @RequestMapping(value = "api/customers/spenders", method = RequestMethod.GET)
+    @RequestMapping(value = "api/customers/spending", method = RequestMethod.GET)
     public ArrayList<CustomerSpending> getCustomersByHighestSpender(){
         return customerRepository.getCustomersByHighestSpender();
     }
 
-    @RequestMapping(value = "api/customers/{id}/genre", method = RequestMethod.GET)
+    @RequestMapping(value = "api/customers/{id}/popular/genre", method = RequestMethod.GET)
     public CustomerAndGenre getMostPopularGenreByCustomerId(@PathVariable String id){
         return customerRepository.getMostPopularGenreForCustomer(id);
     }
-
-
 }

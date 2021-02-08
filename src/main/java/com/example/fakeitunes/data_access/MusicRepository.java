@@ -123,6 +123,7 @@ public class MusicRepository {
             // Execute Query
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            //Creates new objects about results and adds them to the list
             while (resultSet.next()) {
                 results.add(
                         new SearchResult(
@@ -142,7 +143,6 @@ public class MusicRepository {
                 System.out.println(exception.toString());
             }
         }
-        System.out.println(results);
         return results;
     }
 }

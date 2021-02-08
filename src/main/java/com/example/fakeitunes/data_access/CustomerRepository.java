@@ -27,8 +27,8 @@ public class CustomerRepository {
                     conn.prepareStatement("SELECT CustomerId,FirstName,LastName, Country, PostalCode, Phone, Email FROM Customer");
             // Execute Query
             ResultSet resultSet = preparedStatement.executeQuery();
-            //Creates customer objects of all customers from database and adds them to list
 
+            //Creates customer objects of all customers from database and adds them to list
             while (resultSet.next()) {
                 customers.add(
                         new Customer(
@@ -162,8 +162,8 @@ public class CustomerRepository {
                             "GROUP BY Invoice.CustomerId ORDER BY SUM(Total) DESC");
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            //Creates objects which contains customer id, name and their spending total and adds them
-            //to list on descending order
+            //Creates objects which contains customer id, name and their spending total and adds
+            // them to the list on descending order
             while (resultSet.next()) {
                 customersBySpending.add(
                         new CustomerSpending(
@@ -228,7 +228,7 @@ public class CustomerRepository {
                 System.out.println(exception.toString());
             }
         }
-        //Checks most popular genre by it's value
+        //Checks the most popular genre by it's value
         int maxValue = Collections.max(genres.values());
 
         ArrayList<String> mostPopularGenres = new ArrayList<>();
